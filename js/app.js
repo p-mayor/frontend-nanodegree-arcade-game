@@ -6,6 +6,8 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.x = 2;
+    this.y = 2;
 };
 
 // Update the enemy's position, required method for game
@@ -27,12 +29,47 @@ Enemy.prototype.render = function() {
 
 var Player = function () {
     this.sprite = 'images/char-boy.png';
-}
+    this.x = 50;
+    this.y = 50;
+};
 
+Player.prototype.update = function(dt) {
+    player.x
+};
+
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+Player.prototype.handleInput = function(input) {
+    if (input == 'right') {
+        player.x = player.x + 50
+        return player.x
+    }
+    else if (input == 'up') {
+        player.y = player.y - 50
+        return player.y
+    }
+    else if (input == 'left') {
+        player.x = player.x - 50
+        return player.x
+    }
+    else if (input == 'down') {
+        player.y = player.y + 50
+        return player.y
+    }
+    
+
+};
 
 // Now instantiate your objects.
+var Pete = new Player();
+var baddie = new Enemy();
 // Place all enemy objects in an array called allEnemies
+var allEnemies = []
+allEnemies.push(baddie)
 // Place the player object in a variable called player
+var player = Pete
 
 
 
